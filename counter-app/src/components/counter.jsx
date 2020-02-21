@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = { 
-        count: 2
+        count: 0
     }
 
     render() { 
         return (
             <React.Fragment>
-                <p>{this.formatCount()}</p>
-                <button>increment</button>
+                <p className="badge badge-primary m-2">{this.formatCount()}</p>
+                <button className="btn btn-secondary btn-sm">increment</button>
             </React.Fragment>
         );
     }
