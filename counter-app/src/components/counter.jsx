@@ -6,14 +6,21 @@ class Counter extends Component {
         tags: ["tag1", "tag2", "tagn"]
     }
 
+    renderTags() {
+        if(this.state.tags.length === 0) return <p>Tag list is empty</p>;
+
+        return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
+    }
+
     render() {
         return (
             <React.Fragment>
                 <p className={this.formatClasses()}>{this.formatCount()}</p>
                 <button className="btn btn-secondary btn-sm">increment</button>
-                <ul>
-                    {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
-                </ul>   
+                <div>
+                    {this.state.tags.length === 0 && 'There are no tags'}  {/* insert message with logical operators */}
+                    { this.renderTags() }
+                </div>
             </React.Fragment>
         );
     }
