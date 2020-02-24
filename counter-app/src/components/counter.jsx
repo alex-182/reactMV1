@@ -6,14 +6,19 @@ class Counter extends Component {
         tags: ["tag1", "tag2", "tagn"]
     }
 
+    // constructor() {
+    //     super();
+    //     this.handleIncrement = this.handleIncrement.bind(this);  //not so handy
+    // }
+
     renderTags() {
         if(this.state.tags.length === 0) return <p>Tag list is empty</p>;
 
         return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
     }
 
-    handleIncrement() {
-        console.log('Increment Clicked')
+    handleIncrement = () => {  //arrow functions dont rebind "this", they inherit "this"
+        console.log('Increment Clicked', this)
     }
 
     render() {
@@ -26,7 +31,7 @@ class Counter extends Component {
                 >
                     increment
                 </button>
-                
+
                 <div>
                     {this.state.tags.length === 0 && 'There are no tags'}  {/* insert message with logical operators */}
                     { this.renderTags() }
