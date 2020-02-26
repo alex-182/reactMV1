@@ -6,13 +6,14 @@ class Counter extends Component {
     }
 
     handleIncrement = (product) => {  //arrow functions dont rebind "this", they inherit "this"
-        console.log(product);
         this.setState({ count: this.state.count + 1 });
     }
 
     render() {
         return (
             <div>
+                {console.log(this.props)}
+                <p>{this.props.children}</p>
                 <p className={this.formatClasses()}>{this.formatCount()}</p>
                 <button
                     onClick={ () => this.handleIncrement({id:1}) }
