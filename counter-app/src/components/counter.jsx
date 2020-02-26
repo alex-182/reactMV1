@@ -2,19 +2,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = { 
-        count: 0,
-        tags: ["tag1", "tag2", "tagn"]
-    }
-
-    // constructor() {
-    //     super();
-    //     this.handleIncrement = this.handleIncrement.bind(this);  //not so handy
-    // }
-
-    renderTags() {
-        if(this.state.tags.length === 0) return <p>Tag list is empty</p>;
-
-        return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
+        count: 0
     }
 
     handleIncrement = (product) => {  //arrow functions dont rebind "this", they inherit "this"
@@ -24,7 +12,7 @@ class Counter extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div>
                 <p className={this.formatClasses()}>{this.formatCount()}</p>
                 <button
                     onClick={ () => this.handleIncrement({id:1}) }
@@ -32,12 +20,7 @@ class Counter extends Component {
                 >
                     increment
                 </button>
-
-                <div>
-                    {this.state.tags.length === 0 && 'There are no tags'}  {/* insert message with logical operators */}
-                    { this.renderTags() }
-                </div>
-            </React.Fragment>
+            </div>
         );
     }
 
