@@ -37,12 +37,7 @@ class MovieList extends Component {
     }
 
     render() {
-        
-        return (
-            <div className="container">
-                {this.renderMovies()}
-            </div>
-        )
+        return this.renderMovies();
     }
 }
 
